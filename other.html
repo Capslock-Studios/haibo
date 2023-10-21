@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo List</title>
+  <style>
+    /* Styles for the todo list container */
+    #todoList {
+      list-style: none;
+      padding: 0;
+    }
+
+    /* Styles for each todo item container */
+    .todo-item {
+      border: 1px solid #ddd;
+      border-radius: 22px;
+      margin: 10px;
+      padding: 10px;
+      background-color: orange;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Text styles */
+    .todo-text {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Styles for the avatar image */
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <input type="text" id="searchInput" placeholder="Search for an item">
+  <button id="searchButton" type="button" disabled onclick="searchTodo()">Search</button>
+  <ul id="todoList"></ul>
+
+  <script>
+    // Define the list of todo items with associated avatar URLs
+    const todoList = [
+      { parent: 'Buy bread', children: ['today', 'never'], avatarURL: 'https://siyapercy.online/Siyabonga%20Ndaba.jpg' },
+      { parent: 'Sell shoes', children: ['today', 'never'], avatarURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPclkY0uXCizZBABCvzani2DXB-uoCrfJD_B8J9zbfWA&s' },
+      { parent: 'Make a logo', children: ['today', 'never'], avatarURL: 'URL_FOR_ITEM_3_IMAGE' },
+      { parent: 'Chat online', children: ['today', 'never'], avatarURL: 'URL_FOR_ITEM_4_IMAGE' },
+      { parent: 'Meet mom', children: ['today', 'never'], avatarURL: 'URL_FOR_ITEM_5_IMAGE' }
+    ];
+
+    // Function to render the todo list based on the search input
+    function renderTodoList(searchText) {
+      const todoListContainer = document.getElementById('todoList');
+      todoListContainer.innerHTML = '';
+
+      if (searchText === '') {
+        // If there's nothing in the search field, the button is inactive.
+        return;
+      }
+
+      const searchResults = todoList.filter(item => item.parent.toLowerCase().includes(searchText.toLowerCase()));
+
+      if (searchResults.length === 0) {
+        todoListContainer.innerHTML = '<li>No matching items found.</li>';
+      } else {
+        searchResults.forEach((item, index) => {
+          const todoItem = document.createElement('div');
+          todoItem.classList.add('todo-item');
+          todoItem.innerHTML = `
+            <img class="avatar" src="${item.avatarURL}" alt="Avatar">
+            <p class="todo-text"><strong>${index + 1}.</strong> ${item.parent} - ${item.children.join(', ')}</p>
+          `;
+          todoListContainer.appendChild(todoItem);
+        });
+      }
+    }
+
+    // Function to handle the search button click
+    function searchTodo() {
+      const searchInput = document.getElementById('searchInput');
+      const searchText = searchInput.value;
+      renderTodoList(searchText);
+    }
+
+    // Listen for input changes and activate/deactivate the search button
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const searchButton = document.getElementById('searchButton');
+      if (this.value === '') {
+        searchButton.disabled = true;
+      } else {
+        searchButton.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

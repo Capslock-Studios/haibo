@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Search</title>
+    <style>
+        /* Modal styles (unchanged) */
+        /* ... */
+
+        /* Close button style (unchanged) */
+        /* ... */
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+
+    <input type="text" id="searchInput" placeholder="Search for items">
+    <button onclick="search()">Search</button>
+
+    <ul id="todoList"></ul>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Search Results</h2>
+            <ul id="modalTodoList"></ul>
+            <button onclick="openAddMoreForm()">Add More</button>
+            <div id="addMoreForm" style="display: none;">
+                <h2>Add New Item</h2>
+                <input type="text" id="newItemInput" placeholder="New Item">
+                <button onclick="addNewItem()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript object with todo items
+        const todoItems = [
+            "Buy bread",
+            "Sell shoes",
+            "Make a logo",
+            "Chat online",
+            "Meet mom"
+        ];
+
+        function search() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const todoList = document.getElementById("todoList");
+            todoList.innerHTML = '';
+
+            const modalTodoList = document.getElementById("modalTodoList");
+            modalTodoList.innerHTML = '';
+
+            todoItems.forEach((item, index) => {
+                if (item.toLowerCase().includes(searchInput)) {
+                    const li = document.createElement("li");
+                    li.textContent = `Item number ${index + 1}: ${item}`;
+                    todoList.appendChild(li);
+
+                    const modalLi = document.createElement("li");
+                    modalLi.textContent = `Item number ${index + 1}: ${item}`;
+                    modalTodoList.appendChild(modalLi);
+                }
+            });
+
+            if (modalTodoList.children.length > 0) {
+                openModal();
+            }
+        }
+
+        function openModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        function openAddMoreForm() {
+            const addMoreForm = document.getElementById("addMoreForm");
+            addMoreForm.style.display = "block";
+        }
+
+        function addNewItem() {
+            const newItemInput = document.getElementById("newItemInput");
+            const newItem = newItemInput.value.trim();
+
+            if (newItem) {
+                todoItems.push(newItem);
+
+                // Re-run the search with the original query
+                search();
+                newItemInput.value = '';
+
+                // Close the "Add More" form
+                const addMoreForm = document.getElementById("addMoreForm");
+                addMoreForm.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
