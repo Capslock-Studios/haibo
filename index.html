@@ -219,9 +219,13 @@
                   const todoList = [
                     { parent: 'Siyabonga Ndaba', children: ['Software Dev', 'DELL i7 369-5417'] , avatarURL: 'https://siyapercy.online/Siyabonga%20Ndaba.jpg' },
                     { parent: 'Twakae Fitness club-GYm', children: ['Gym', '083 976 5015'],avatarURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPclkY0uXCizZBABCvzani2DXB-uoCrfJD_B8J9zbfWA&s' },
-                    { parent: 'Make a logo', children: ['today', 'never'],avatarURL: 'https://siyapercy.online/Siyabonga%20Ndaba.jpg' },
-                    { parent: 'Chat online', children: ['today', 'never'],avatarURL: 'https://siyapercy.online/Siyabonga%20Ndaba.jpg' },
-                    { parent: 'Meet mom', children: ['today', 'never'],avatarURL: 'https://siyapercy.online/Siyabonga%20Ndaba.jpg' }
+                    { parent: 'Njabulo Ncube - 356590110523800', children: ['LG K42', '12 MARCH 2023', 'VODACOM'],avatarURL: 'https://static.thenounproject.com/png/363640-200.png' },
+                    { parent: 'Jabu Manyisa - 860273062378494', children: ['HUAWEI nova 11!', '30 June 2023-10:59', 'VODACOM'],avatarURL: '/' },
+                    { parent: 'Bafana', children: ['Galaxy A13', 'Sep 2022', 'Ackamends'],avatarURL: 'https://static.thenounproject.com/png/363640-200.png' },
+                    { parent: ' - ', children: ['Galaxy A13', 'Sep 2022', 'Ackamends'],avatarURL: 'https://static.thenounproject.com/png/363640-200.png' },
+                    { parent: ' - ', children: ['Galaxy A13', 'Sep 2022', 'Ackamends'],avatarURL: 'https://static.thenounproject.com/png/363640-200.png' },
+                    { parent: 'Sifiso Mabunda - 352288966440955/01', children: ['Galaxy A13', '25 Feb 2023', 'Ackamends'],avatarURL: 'https://static.thenounproject.com/png/363640-200.png' },
+                    { parent: 'Nkosana Shelembe - 078 360 6384', children: ['today', 'never'],avatarURL: 'https://static.thenounproject.com/png/363640-200.png' }
                   ];
               
                   // Function to render the todo list based on the search input
@@ -786,34 +790,48 @@
       <div class="row">
         <div class="col-md-8 mx-auto">
           <div class="form_container">
-            <form name="contact" method="POST" data-netlify="true">
-              <div class="field">
-                <label class="label">Your Name:
-                  <input class="input" type="text" name="name" />
-                </label>
-              </div>
-              <div class="field">
-                <label class="label">Your Email:
-                  <input class="input" type="email" name="email" />
-                </label>
-              </div>
-              <div class="field">
-                <label for="role[]" class="label">Your Role:</label>
-                <div class="select is-multiple">
-                  <select name="role[]" multiple size="2">
-                    <option value="leader">Leader</option>
-                    <option value="follower">Follower</option>
-                  </select>
+            <form >
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Your Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Surname">
                 </div>
               </div>
-              <div class="field">
-                <label class="label">Message:
-                  <textarea class="textarea" name="message"></textarea>
-                </label>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="User ID">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Phone Number">
+                </div>
               </div>
-              <div class="field">
-                <button class="button is-primary is-medium" type="submit">Send</button>
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="text" class="form-control" id="inputSubject4" placeholder="Product Serial Number">
+                </div>
               </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Product Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Bought From/store">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Store/Seller Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Store/Seller Address">
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="">Submit</button>
+              </div>
+             
             </form>
           </div>
         </div>
