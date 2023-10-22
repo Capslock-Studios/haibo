@@ -306,9 +306,18 @@ a:focus {
  sans-serif;
   text-transform: uppercase;
   font-weight: bold;
-  color: #fefdfc;
-  font-size: 3.5rem;
+  color: #ffffff;
+  font-size: 3.5rem
 }
+
+.slider_section .slider_container .detail_container .detail-box span {
+  font-family: "Open Sans",
+ sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 40px;
+  display: none;}
 
 .slider_section .slider_container .detail_container .detail-box a {
   display: inline-block;
@@ -355,8 +364,8 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transform: translateY(-75px);
-          transform: translateY(-75px);
+  -webkit-transform: translateY(-300px);
+          transform: translateY(-300px);
 }
 
 .book_section .form_container {
@@ -380,6 +389,7 @@ a:focus {
 
 .book_section .img-box img {
   width: 100%;
+  display: none;
 }
 
 .book_section form {
@@ -388,7 +398,7 @@ a:focus {
   background-color: #fefdfc;
   -webkit-box-shadow: 0px 0px 20px 11px rgba(0, 0, 0, 0.09);
   box-shadow: 0px 0px 20px 11px rgba(0, 0, 0, 0.09);
-  border-radius: 10px;
+  border-radius:20px;
 }
 
 .book_section form label {
@@ -401,13 +411,13 @@ a:focus {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border-radius: 0;
+  border-radius: 22px;
   border: 1px solid #8e8e8e;
   color: #000000;
 }
 
 .book_section form .form-control::-webkit-input-placeholder {
-  color: #1d1c1c;
+  color: #969696;
 }
 
 .book_section form .form-control:-ms-input-placeholder {
